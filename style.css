@@ -1,0 +1,303 @@
+@font-face {
+    font-family: GoogleSans;
+    src: url("font/Google_Sans/GoogleSans-VariableFont_GRAD,opsz,wght.ttf");
+}
+
+@font-face {
+    font-family: VT323;
+    src: url("font/VT323/VT323-Regular.ttf");
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: GoogleSans, Roboto, Arial, sans-serif;
+}
+
+@media only screen and (min-width: 66vh) {
+    #Calculator {
+        height: 90%;
+        width: 50vh;
+    }
+}
+
+@media only screen and  (max-width: 66vh) {
+    #Calculator {
+        height: 90%;
+        width: 90dvw;
+        max-height: 150cqw;
+    }
+}
+
+body {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    height: 100svh;
+}
+
+.lightMode {
+    background: #e1e1e1;
+}
+
+.darkMode {
+    background: #333333;
+}
+
+.lightMode header,
+.lightMode footer,
+.lightMode #Calculator {
+    background-color: #acacac;
+    color: #1a1a1a;
+    box-shadow: 0 0 15px 4px #acacac;
+}
+
+.darkMode header,
+.darkMode footer,
+.darkMode #Calculator {
+    background-color: #1a1a1a;
+    color: #acacac;
+    box-shadow: 0 0 15px 4px #1a1a1a;
+}
+
+header {
+    text-align: center;
+    padding: 16px;
+    /*border-bottom: 1px solid #1a1a1a;*/
+    font-size: 2.5cqw;
+    line-height: 1.5em;
+    height: 18cqw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 20dvh;
+}
+
+header h1 {
+    font-size: 4.5cqw;
+    line-height: 1.5em;
+    letter-spacing: 0.1em;
+}
+
+#Toggle {
+    border-radius: 25%;
+    position: absolute;
+    top: min(24px, 2dvw);
+    right: min(24px, 2dvw);
+    height: 1.5em;
+    width: 1.5em;
+    font-size: 1.5em;
+    border: none;
+    touch-action: manipulation;
+}
+
+#Toggle span {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 75%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 75%;
+}
+
+.lightMode #Toggle {
+    background-color: #e1e1e1;
+}
+
+.lightMode #Toggle:hover {
+    background-color: #d1d1d1;
+}
+
+.lightMode #Toggle:active {
+    background-color: #bdbdbd;
+}
+
+.lightMode #Toggle span {
+    background-color: #333333;
+    -webkit-mask-image: url(src/Sun.png);
+    mask-image: url(src/Sun.png);
+}
+
+.darkMode #Toggle {
+    background-color: #6D6D6D;
+}
+
+.darkMode #Toggle span {
+    background-color: #e1e1e1;
+    -webkit-mask-image: url(src/Moon.png);
+    mask-image: url(src/Moon.png);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+}
+
+.lightMode #Calculator {
+    box-shadow:  4px 4px 16px 4px #6a6a6a, 4px 4px 12px 0 #e1e1e1 inset, -4px -4px 12px 0 #6a6a6a inset;
+}
+
+.darkMode #Calculator {
+    box-shadow:  4px 4px 16px 4px #090909, 4px 4px 12px 0 #333333 inset, -4px -4px 12px 0 #090909 inset;
+}
+
+#Calculator {
+    display: flex;
+    border-radius: 2cqh;
+    flex-direction: column;
+    padding: 2cqh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.lightMode #Output {
+    background-color: #cee3e4;
+    color: #030302;
+    box-shadow: 1px 1px 4px 2px #acacac inset, -4px -4px 6px 6px #6a6a6a,  4px 4px 6px 6px #e1e1e1;
+    /*border-color: #6a6a6a #e1e1e1 #e1e1e1 #6a6a6a;*/
+}
+
+.darkMode #Output {
+    background-color: #A5BAA7;
+    color: #1A1A1A;
+    box-shadow: 1px 1px 4px 2px #1a1a1a inset, -4px -4px 6px 6px #090909,  4px 4px 6px 6px #424242;
+}
+
+#Output {
+    height: 15%;
+    font-size: 4cqh;
+    padding: 0 12px;
+    /*border: 3px solid;*/
+    border: none;
+    border-radius: 2cqh;
+    font-weight: bold;
+    cursor: default;
+    font-family: VT323, monospace;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+#Output:focus {
+    outline: none;
+}
+
+#Keyboard {
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    height: 70%;
+    width: 95%;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.lightMode #Keyboard button {
+    background-color: #bdbdbd;
+    /*background-color: #e1e1e1;*/
+    box-shadow: 1px 1px 4px 2px #6a6a6a, 4px 4px 12px 0 #e1e1e1 inset, -4px -4px 12px 0 #6a6a6a inset;
+}
+
+.lightMode #Keyboard button:hover {
+    background-color: #b1b1b1 !important;
+    box-shadow: 1px 1px 4px 2px #6a6a6a, 4px 4px 12px 0 #e1e1e1 inset, -4px -4px 12px 0 #6a6a6a inset !important;
+}
+
+.lightMode #Keyboard button:active {
+    background-color: #9f9f9f !important;
+    box-shadow: 1px 1px 4px 2px #6a6a6a, 4px 4px 12px 0 #e1e1e1 inset, -4px -4px 12px 0 #6a6a6a inset !important;
+}
+
+.darkMode #Keyboard button {
+    background-color: #6D6D6D;
+    color: #e1e1e1;
+    box-shadow: 1px 1px 4px 2px #090909, 4px 4px 12px 0 #afafaf inset, -4px -4px 12px 0 #1a1a1a inset;
+}
+
+.darkMode #Keyboard button:hover {
+    background-color: #5a5a5a !important;
+    color: #e1e1e1;
+    box-shadow: 1px 1px 4px 2px #090909, 4px 4px 12px 0 #afafaf inset, -4px -4px 12px 0 #1a1a1a inset !important;
+}
+
+.darkMode #Keyboard button:active {
+    background-color: #505050 !important;
+    box-shadow: 1px 1px 4px 2px #090909, 4px 4px 12px 0 #afafaf inset, -4px -4px 12px 0 #1a1a1a inset !important;
+}
+
+#Keyboard button {
+    font-size: 4cqh;
+    margin: 5%;
+}
+
+#Calculate {
+    grid-area: 3 / 4 / span 2 / 5;
+}
+
+.lightMode .red {
+    color: red;
+}
+
+.lightMode .red:hover {
+    color: #F30000;
+}
+
+.symbol {
+    vertical-align: middle;
+    font-size: 5.5cqh;
+}
+
+#Keyboard button {
+    border-radius: 2cqh;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    touch-action: manipulation;
+}
+
+#Plus,
+#Minus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signIndicator {
+    width: 30%;
+    height: 10%;
+    display: block;
+    border-radius: 10cqw;
+    background: #ff7d20;
+    box-shadow: 0 0 12px 2px #ff7d20, 0 0 4px 0 #7e370f inset;
+}
+
+.inactive {
+    background: #a64914;
+}
+
+.lightMode .inactive {
+    box-shadow: 0 0 2px 1px #6a6a6a, 0 0 4px 0 #7e370f inset;
+}
+
+.darkMode .inactive {
+    box-shadow: 0 0 2px 1px #494949, 0 0 4px 0 #7e370f inset
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}

@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Kalkulator do Tysiąca</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-$END$
+<body class="lightMode">
+<header>
+    <h1>Kalkulator punktów w Tysiącu</h1>
+    <p>Oblicz ile masz punktów, nawet kiedy nie masz już siły dodawać!</p>
+    <button id="Toggle"><span></span></button>
+</header>
+<main>
+    <section id="Calculator">
+        <input type="text" aria-label="output" id="Output" value="">
+        <section id="Keyboard">
+            <button id="Plus"><span class="signIndicator"></span>+</button>
+            <button id="Minus"><span class="signIndicator inactive"></span>-</button>
+            <button id="Clear">C</button>
+            <button id="Backspace">&larr;</button>
+            <button id="Hearts" value="100" class="red "><span class="symbol">&hearts;</span></button>
+            <button id="Diamonds" value="80" class="red "><span class="symbol">&diams;</span></button>
+            <button id="Clubs" value="60" class=""><span class="symbol">&clubs;</span></button>
+            <button id="Spades" value="40" class=""><span class="symbol">&spades;</span></button>
+            <button id="King" value="4">K</button>
+            <button id="Ten" value="10">10</button>
+            <button id="Ace" value="11">A</button>
+            <button id="Nine" value="0">9</button>
+            <button id="Jack" value="2">J</button>
+            <button id="Queen" value="3">Q</button>
+            <button id="Calculate">=</button>
+        </section>
+    </section>
+</main>
+<footer>
+    <p>Kacper Makarski, 2026 r.</p>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
