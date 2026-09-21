@@ -50,7 +50,8 @@ function keyboardPress(button) {
         for (let value of values) {
             score += parseInt(value);
         }
-        output.value = (score < 0) ? `- ${score * -1}` : score;
+        score = ((score < 0) ? `- ${score * -1}` : score);
+        output.value = Math.round(score / 10) * 10;
     }
     output.scrollLeft = output.scrollWidth;
 }

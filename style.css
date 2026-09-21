@@ -125,14 +125,38 @@ header h1 {
     mask-image: url(src/Sun.png);
 }
 
+.lightMode #Toggle:hover span {
+    background-color: #232323;
+}
+
+.lightMode #Toggle:active span {
+    background-color: #0F0F0F;
+    }
+
 .darkMode #Toggle {
     background-color: #6D6D6D;
+}
+
+.darkMode #Toggle:hover {
+    background-color: #5D5D5D;
+}
+
+.darkMode #Toggle:active {
+    background-color: #494949;
 }
 
 .darkMode #Toggle span {
     background-color: #e1e1e1;
     -webkit-mask-image: url(src/Moon.png);
     mask-image: url(src/Moon.png);
+}
+
+.darkMode #Toggle:hover span {
+    background-color: #d1d1d1;
+}
+
+.darkMode #Toggle:active span {
+    background-color: #bdbdbd;
 }
 
 main {
